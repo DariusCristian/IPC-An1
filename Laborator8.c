@@ -1,11 +1,11 @@
-1. Să se scrie o funcție C care primind ca si parametru 2 șiruri de caractere returnează 
+/* 1. Să se scrie o funcție C care primind ca si parametru 2 șiruri de caractere returnează 
 un număr negativ dacă primul sir este mai mic, 0 dacă cele 2 siruri sunt egale si un număr pozitiv
 dacă primul sir este mai mare decât al 2-lea. Comparațiile sunt lexicografice. 
-(implementare pentru funcția strcmp)
+(implementare pentru funcția strcmp) 
 
 strcmp - in libraria <stream.h> /// este o functie 
 
-METODA 1
+METODA 1 */
 
 #include "stdio.h"
 
@@ -38,7 +38,7 @@ int main(void) {
 }
 
 
-METODA 2
+// METODA 2
 
 #include "stdio.h"
 
@@ -67,16 +67,16 @@ int main(void) {
 }
 
 
-** apostroafele sunt doar pentru caractere, pentru siruri sunt ghilimele
+// ** apostroafele sunt doar pentru caractere, pentru siruri sunt ghilimele
 
 
 
 
-2. Să se scrie o funcție C care primind ca și parametru 2 siruri de caractere, 
+/* 2. Să se scrie o funcție C care primind ca și parametru 2 siruri de caractere, 
 le concatenează cu obținerea noului sir in primul argument al funcției 
 (implementare pentru funcția strcat). (poza cu explicatia pe telefon)
 
-METODA 1
+METODA 1 */
 
 #include "stdio.h"
 
@@ -99,7 +99,7 @@ int main(void) {
 
 
 
-METODA 2
+// METODA 2
 
 #include "stdio.h"
 
@@ -121,11 +121,60 @@ int main(void) {
 
 
 
-3. Se citeste un text de la tastatură, terminat prin caracterul sfarsit de rand (enter). Să se scrie
+/* 3. Se citeste un text de la tastatură, terminat prin caracterul sfarsit de rand (enter). Să se scrie
 programul C care determină numărul de apariții ale fiecărei litere din șir – literele mici și mari se consideră impreună.
 (am poza cu rezolvarea scrisa in cuvinte)
 
-PROBLEMA DE EXAMEN (poza pe telefon)
+PROBLEMA DE EXAMEN (poza pe telefon) */
+
+#include <stdio.h>
+#include <string.h>  // Pentru operațiuni cu șiruri de caractere
+
+#define FALSE 0
+#define TRUE !(FALSE)
+
+int myisalpha(char c) {
+    // Verifică dacă caracterul este o literă (minuscule sau majuscule)
+    return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')) ? TRUE : FALSE;
+}
+
+int mytoupper(char c) {
+    // Transformă literele mici în majuscule
+    return (('a' <= c && c <= 'z')) ? c - 'a' + 'A' : c;
+}
+
+int main(void) {
+    char sir[1000];
+    int aparitii[26] = {0};  // Tablou de frecvențe pentru litere
+    int i;
+
+    // Folosim fgets pentru a citi în siguranță textul de la utilizator
+    printf("Introdu sirul: ");
+    fgets(sir, sizeof(sir), stdin);
+
+    // Eliminăm caracterul newline de la sfârșitul șirului
+    sir[strcspn(sir, "\n")] = '\0'; // codul merge si fara linia asta
+
+    // Calculăm frecvența fiecărei litere
+    for (i = 0; i < strlen(sir); i++) {
+        // Verificăm dacă este literă și convertim în majusculă
+        if (myisalpha(sir[i])) {
+            int index = mytoupper(sir[i]) - 'A';
+            aparitii[index]++;
+        }
+    }
+
+    // Afișăm frecvența fiecărei litere dacă este mai mare de 0
+    for (i = 0; i < 26; i++) {
+        // Dacă litera are cel puțin o apariție, o afișăm
+        if (aparitii[i] > 0) {
+            printf("Literele %c sau %c apar de %d ori\n", 'a' + i, 'A' + i, aparitii[i]);
+        }
+    }
+
+    return 0;
+}
+
 
 
 
