@@ -1,7 +1,7 @@
-LABORATOR 5-03.04.2024
+// LABORATOR 5-03.04.2024
   
-  1. Se citeste un sir de n numere reale. Să se afișeze: suma acestor numere, valoarea maximă
-din șir. 
+ // 1. Se citeste un sir de n numere reale. Să se afișeze: suma acestor numere, valoarea maximă
+// din șir. 
     
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,8 +26,8 @@ int main()
     return 0;
 }
   
-	2. Se citeste un sir de n+1 numere reale a0, a1, …, an reprezentând coeficienții unui polinom de
-gradul n . Se citeste o valoare reală x. să se calculeze valoarea polinomului in punctul x. 
+	// 2. Se citeste un sir de n+1 numere reale a0, a1, …, an reprezentând coeficienții unui polinom de
+// gradul n . Se citeste o valoare reală x. să se calculeze valoarea polinomului in punctul x. 
     
     
 #include <stdio.h>
@@ -50,7 +50,7 @@ int main()
     return 0;
 }
   
-  3. Se citeste o matrice pătratică A de dimensiune n x n. Să se calculeze transpusa matricii A. 
+//  3. Se citeste o matrice pătratică A de dimensiune n x n. Să se calculeze transpusa matricii A. 
     
   
 #include <stdio.h>
