@@ -20,11 +20,21 @@ int main(void) {
 
 // varianta 2
 
+int mystrlen(char *s){
+    int i = 0;
+    while(*(s+i)) i++;
+    return (i);
+}\
 
 
 
 // varianta 3
-
+int mystrlen(char a[])
+{ int n;
+for(n=0;a[n];n++); //ciclul for se oprește în momentul întâlnirii octetului
+null care termină orice şir de caractere
+return(n);
+}
 
 
 
