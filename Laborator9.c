@@ -44,3 +44,26 @@ return(n);
 
 // problema facuta in lab 8, dar de data asta o facem cu pointeri
 
+
+#include <stdio.h>
+
+char* mystrcat(char* dest, char* s)
+{ // il facem pe p sa puncteze spre sfarsitul lui dest
+    char* p = dest;
+    while(*p)p++;//sau while(*p!='\0') p++;
+    // Adaugam caracterele lui s la finalul lui dest
+    while((*p++=*s++)); // sau while(*s!='\0')*p++=*s++;*p='\0';
+    //strcat() intoarce adresa inceputului sirului dest
+    return dest;
+}
+
+int main ()
+{
+    char dest[100]= "Hello ";
+    char nume[100];
+    printf("nume="); scanf("%s", nume);
+    printf("%s",mystrcat(mystrcat(mystrcat(mystrcat(dest, nume), "! How "), "are "), "you?"));
+    
+    return 0;
+}
+
