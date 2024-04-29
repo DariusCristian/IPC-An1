@@ -24,7 +24,7 @@ int mystrlen(char *s){
     int i = 0;
     while(*(s+i)) i++;
     return (i);
-}\
+}
 
 
 
@@ -32,7 +32,7 @@ int mystrlen(char *s){
 int mystrlen(char a[])
 { int n;
 for(n=0;a[n];n++); //ciclul for se oprește în momentul întâlnirii octetului
-null care termină orice şir de caractere
+// null care termină orice şir de caractere
 return(n);
 }
 
