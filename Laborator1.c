@@ -1,4 +1,4 @@
-->>LAB1
+// ->>LAB1
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,7 +6,7 @@
 int main()
 {
     ///pb1
-    /*float a, b, s, d, p, c;
+    float a, b, s, d, p, c;
     printf("a=");
     scanf("%f", &a);
     printf("b=");
@@ -21,10 +21,10 @@ int main()
     {
         c=a/b;
         printf("cat=%.2f", c);
-    }*/
+    }
 
     ///pb2-mediile aritmetica,geometrica,armonica
-    /*int a,b,c;
+    int a,b,c;
     float ma,mg,mh;
     printf("a=");
     scanf("%i", &a);
@@ -44,9 +44,9 @@ int main()
         printf("media armonica=%.2f\n", mh);
     }*/
 
-    ///pb3
+    //pb3
 
-    /*float x,y,p,f;
+    float x,y,p,f;
     printf("x=");
     scanf("%f",&x);
     printf("y=");
@@ -59,7 +59,7 @@ int main()
         f=x+y;
     else
         f=1/(p+1);
-    printf("f(%.2f,%.2f)=%.2f", x, y, f);*/
+    printf("f(%.2f,%.2f)=%.2f", x, y, f);
 
     ///pb4
 
