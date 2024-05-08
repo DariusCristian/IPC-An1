@@ -21,32 +21,42 @@ int main()
     scanf("%i",&n);
     while(n!=0)
     {
-        c=n%10;
-        s=s+c;
-        n=n/10;
+      // pentru exemplu: 1234
+      // prima etapa
+        c=n%10; // extrage ultima cifra 4
+        s=s+c; // adauga ultima cifra la s=0+4
+        n=n/10; // taie ultima cifra -> numarul ramane 123, si acest proces se repeta in continua, pana cand n devine 0
     }
     printf("suma cifrelor este %i", s);
   
   	///pb3
-  int n, s=0, c,x;
+  int main() {
+    int s=0, c,x;
+
     printf("n=");
-    scanf("%i",&n);
+    scanf("%i",&c);
+
     printf("x=");
     scanf("%i",&x);
-    c=n;
+
     while(c!=0)
     {
         if(c%10==x)
             s++;
         c=c/10;
     }
-    printf("cifra %i apare de %i ori", x, s);
+    printf("Cifra %i apare de %i ori", x, s);
 
-  ///pb4
+    return 0;
+
+  ///pb4 sirul lui fibonacci
     int a=0,b=1,c,i=2,n;
+    
     printf("n=");
     scanf("%i",&n);
+    
     printf("Sirul lui Fibonacci este\n %i %i ", a, b);
+    
     while(i<n)
     {
         c=a+b;
