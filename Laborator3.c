@@ -1,42 +1,59 @@
 LABORATOR3-30.03.2024
   
-  //prim
-    int n, prim=TRUE, d=2;
+  // DACA NUMARUL ESTE PRIM SAU  NU
+    int main() {
+    int d,n, prim=1;
+    // n - numarul pe care il verific daca e prim
+    // d - variabila caruia ii atribui valoarea 2
+    // pt a verfica restul daca este prim sau nu
     printf("n=");
-    scanf("%i", &n);
-    while(d<=n/2 && prim==1)
-    {
-        if(n%d==0)
-            prim=FALSE;
-        d++;
+    scanf("%d", &n);
+
+    for (d=2;d<=(n/2);d++) {
+        if (n%d==0)
+            prim=0;
     }
-    if(prim==TRUE)
-  
-        printf("Numarul %i este prim", n);
+    if (prim==0)
+        printf("%d nu este nr. prim!", n);
     else
-        printf("Numarul %i NU este prim", n);
-    //SAU(IN LOC LA IF DE AFISARE)
-    //printf("%d%sprim",n,prim?" e":"nu e");
+        printf("%d este nr prim!", n);
+    return 0;
+}
+    
   -----------------------------------------------
     
     ///descompunere in factori primi
-    int n,d=2, p;
+    int main() {
+    unsigned int n,d,p; // unsigned = nu pot fi negative numerele
+    // n - nr pe care il descompunem
+    // p - numarul putere
+
     printf("n=");
-    scanf("%i", &n);
-    while(n!=1)
-    {
-        p=0;
-        if(n%d==0)
-        {
-            while(n%d==0)
-            {
-                n=n/d;
-                p++;
-            }
-            printf("%i ^ %i\n", d, p);
+    scanf("%d", &n);
+
+    d = 2; // primul factor prim
+
+    printf("%d = ", n);
+    while(n>1) {
+
+        p=0; // p stocheaza nr de repetari a unui factor prim (puterea)
+
+        while (n%d==0) {
+            p++;
+            n=n/d;
+        };
+
+        if (p>0) {
+            if (n==1)
+                printf("(%d^%d)",d,p);
+            else
+                printf("(%d^%d) * ",d,p); // n se divide de p ori cu d
         }
         d++;
     }
+
+    return 0;
+}
   -------------------------------------------------
     ///Se citeste un număr natural n. să se afișeze secvența:
     ///a. 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5 ….
