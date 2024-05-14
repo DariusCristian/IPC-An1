@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 struct persoana { // definim structura cu numele persoana
     char nume[20];
     char prenume[20];
     int varsta;
-    char localitate[25];
+    char localitate[25]; 
+// aici avem in final 69 de octeti 20+20+4+25
 } sir[100]; /*variabila sir[100] va fi de tip structura persoana
  * functia pentru citirea inregistrarilor din fisier*/
 
