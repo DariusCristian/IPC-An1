@@ -5,24 +5,30 @@
     
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
-    
-#define INFINIT INT_MAX
+#include <limits.h> // pentru constanta INT_MIN adica minus infinit
 
-int main()
-{
-    int a[100], n, suma = 0, maxim = -INFINIT, i;
-    printf("n=");
-    scanf("%i", &n);
-    for(i=0; i<n; i++)
-    {
+/* Se citeste un sir de n numere reale. Sa se afiseze suma acestor numere,
+ * valoarea maxima din sir.*/
+
+int main(){
+    int n, i;
+    float a[20], s=0, max = INT_MIN;
+    // prin float a[20] declaram un sir de numere reale
+    // sirul a are dimensiunea de maxim 20 elemente
+    // in variabila max vom stoca maximul din sir
+    // initial maximul (necunoscut) presupunem ca e minus infinit
+    printf("Introduceti lungimea sirului n=");
+    scanf("%d", &n);
+    for (i=0; i<n; i++){ // parcurgem sirul de indici de la 0
         printf("a[%d]=", i);
-        scanf("%d", &a[i]);
-        suma += a[i];
-        if(a[i]>maxim)
-            maxim=a[i];
+        scanf("%f", &a[i]);
+        s+=a[i]; // reactualizam suma numerelor
+        if (a[i]>max) {
+            max = a[i];
+        }
     }
-    printf("suma numerelor este %d si maximul este %d", suma, maxim);
+    printf("Suma numerelor este %.2f\n", s);
+    printf("Valoarea maxima din sir este: %.2f\n", max);
     return 0;
 }
   
