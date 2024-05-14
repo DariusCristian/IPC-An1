@@ -91,6 +91,7 @@ int main() {
     }while (i<nrinregistrari);
 
     fclose(fp); // inchidem fisierul
-
+    /*https://www.geeksforgeeks.org/bubble-sort/
+    This link explain the bubble sort, that we used here in this code*/
     return 0;
 }
