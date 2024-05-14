@@ -11,7 +11,11 @@
  * valoarea maxima din sir.*/
 
 int main(){
-    int n, i;
+    int n, i; // n - lungimea sirului,
+    // a[20] - sir de 20 de caractere.
+    // i - pt. a folosi ca index in bucle
+    // s=0 - suma a[i]-urilor
+    // max - valoarea maxima pe care o poate lua s, adica -infinit
     float a[20], s=0, max = INT_MIN;
     // prin float a[20] declaram un sir de numere reale
     // sirul a are dimensiunea de maxim 20 elemente
@@ -31,7 +35,12 @@ int main(){
     printf("Valoarea maxima din sir este: %.2f\n", max);
     return 0;
 }
-  
+
+
+
+
+
+
 	// 2. Se citeste un sir de n+1 numere reale a0, a1, …, an reprezentând coeficienții unui polinom de
 // gradul n . Se citeste o valoare reală x. să se calculeze valoarea polinomului in punctul x. 
     
