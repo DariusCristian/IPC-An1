@@ -1,3 +1,7 @@
+
+    /*https://www.geeksforgeeks.org/bubble-sort/
+    This link explain the bubble sort, that we used here in this code*/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -5,10 +9,9 @@ struct persoana { // definim structura cu numele persoana
     char nume[20];
     char prenume[20];
     int varsta;
-    char localitate[25]; 
-// aici avem in final 69 de octeti 20+20+4+25
+    char localitate[25];
 } sir[100]; /*variabila sir[100] va fi de tip structura persoana
- * functia pentru citirea inregistrarilor din fisier*/
+ * !!!!!functia pentru citirea inregistrarilor din fisier*/
 
 int citeste_inregistrari (FILE *fp){
     int i=0;
@@ -73,13 +76,13 @@ int main() {
     do {
         while((i+1<nrinregistrari)&&(sir[i].varsta==sir[i+1].varsta))
             i++,numar++;
-        printf("\nAferent varstei &d ani avem %d inregistrari\n", sir[i].varsta, numar);
+        printf("\nAferent varstei %d ani avem %d inregistrari.\n", sir[i].varsta, numar);
         i++;
         numar=1;
     }while(i<nrinregistrari);
 
     sortare_localitate(nrinregistrari); // sortam persoanele dupa localitate
-    printf("Intregistrarile sortate dupa localitate:\n");
+    printf("\nInregistrarile sortate dupa localitate:\n");
     afiseaza_inregistrari(nrinregistrari);
     i=0;
     do {
@@ -91,7 +94,6 @@ int main() {
     }while (i<nrinregistrari);
 
     fclose(fp); // inchidem fisierul
-    /*https://www.geeksforgeeks.org/bubble-sort/
-    This link explain the bubble sort, that we used here in this code*/
+
     return 0;
 }
