@@ -41,9 +41,14 @@ int main(){
 
 
 
+
+
+
+
 	// 2. Se citeste un sir de n+1 numere reale a0, a1, …, an reprezentând coeficienții unui polinom de
 // gradul n . Se citeste o valoare reală x. să se calculeze valoarea polinomului in punctul x. 
-    
+
+// VARIANTA 1
     
 #include <stdio.h>
 #include <stdlib.h>
@@ -64,6 +69,46 @@ int main()
     printf("P(%d)=%d", x,pol );
     return 0;
 }
+
+// VARIANTA 2
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+    // variabila "v" va stoca valoarea polinomului
+    int n,i;
+    float x,a[20],v=0,xp;
+
+    printf("n=");
+    scanf("%d", &n);
+
+    printf("x=");
+    scanf("%f", &x);
+
+    for (i=0;i<=n;i++){
+        // sunt n+1 coeficienti, de la 0 la inclusiv 'n'
+        // citim coeficientii si calculam valoarea polinomului
+        printf("Coeficient de ordin %d este ", i);
+        scanf("%f", &a[i]);
+        xp = powf(x,n-i); //calculam x la puterea n adica x^n
+        v = v+xp*a[i]; // echivalent cu v+=xp*a[i]
+    }
+    printf("\nPolinomul este:\n");
+    for (i=n;i>=0;i--){
+        printf("%.2f", a[i]);
+        if (i>0) printf("X^%d+", i);
+        else printf("*X^%d", i);
+    }
+    printf("\nValoarea polinomului este: %.2f\n", v);
+    return 0;
+}
+
+
+
+
+
+
   
 //  3. Se citeste o matrice pătratică A de dimensiune n x n. Să se calculeze transpusa matricii A. 
     
