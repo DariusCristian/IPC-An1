@@ -47,7 +47,7 @@ int main(){
 
 	// 2. Se citeste un sir de n+1 numere reale a0, a1, …, an reprezentând coeficienții unui polinom de
 // gradul n . Se citeste o valoare reală x. să se calculeze valoarea polinomului in punctul x. 
-
+// !!!!!!!!!!!!!!!!!!!!!! N-AM INTELES-O DELOC
 // VARIANTA 1
     
 #include <stdio.h>
