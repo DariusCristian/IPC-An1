@@ -110,57 +110,52 @@ int main() {
 
 
   
-//  3. Se citeste o matrice pătratică A de dimensiune n x n. Să se calculeze transpusa matricii A. 
+//  3. Se citeste o matrice pătratică A de dimensiune n x n. 
+//  Să se calculeze transpusa matricii A. 
     
   
 #include <stdio.h>
 #include <stdlib.h>
 
-void citeste_matrice(int a[][100], int n, char nume[])
-{
-    int i,j;
-    for(i=0; i<n; i++)
-        for(j=0; j<n; j++)
-        {
+void citeste_matrice(int a[][100], int n, char nume[]) {
+    int i, j;
+    for (i=0;i<n;i++)
+        for (j=0;j<n; j++) {
             printf("%s[%d][%d]=", nume, i, j);
             scanf("%d", &a[i][j]);
         }
 }
-void scrie_matrice(int a[][100], int n, char nume[])
-{
+void scrie_matrice(int a[][100], int n, char nume[]){
     int i,j;
     printf("\n%s=\n", nume);
-    for(i=0; i<n; i++)
-    {
-        for(j=0; j<n; j++)
-
+    for (i=0;i<n;i++){
+        for (j=0; j<n; j++)
             printf("%4d", a[i][j]);
         printf("\n");
     }
 }
-void transpune_matrice(int a[][100], int n, int t[][100])
-{
+void transpune_matrice(int a[][100], int n, int t[][100],char nume[]) {
     int i,j;
-    printf("\n%s=\n", nume);
-    for(i=0; i<n; i++)
-        for(j=0; j<n; j++)
+    for (i=0;i<n;i++){
+        for (j=0; j<n; j++)
             t[i][j]=a[j][i];
-
+    }
 }
 
-  int main()
-{
-  int a[100][100], n, t[100][100], tt[100][100];
-    //tt-dubla transpusa
-    printf("n="); scanf("%d", &n);
+int main() {
+    int a[100][100], n, t[100][100], tt[100][100];
+    // tt - dubla transpusa
+    printf("n=");
+    scanf("%d", &n);
+
     citeste_matrice(a, n, "A");
-    scrie_matrice(a, n, "A");
+    scrie_matrice(a,n,"A");
 
-    transpune_matrice(a, n, t);
-    scrie_matrice(a, n, "T");
+    transpune_matrice(a,n,t, "T");
+    scrie_matrice(t,n,"T");
 
-    transpune_matrice(t, n, tt);
-    scrie_matrice(a, n, "TT");
+    transpune_matrice(t,n,tt, "TT");
+    scrie_matrice(tt,n,"TT");
 
     return 0;
-}
+    }
