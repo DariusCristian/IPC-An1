@@ -112,7 +112,8 @@ int main() {
   
 //  3. Se citeste o matrice pătratică A de dimensiune n x n. 
 //  Să se calculeze transpusa matricii A. 
-    
+
+//  Varianta 1 - Cea Lunga
   
 #include <stdio.h>
 #include <stdlib.h>
@@ -159,3 +160,40 @@ int main() {
 
     return 0;
     }
+
+
+// Varianta 2 -  cea scurta 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n ,a[100][100], i,j,temp;
+
+    printf("n=");
+    scanf("%d", &n);
+
+    printf("Introduceti elementele matricii:\n");
+
+    for (i=0;i<n;i++)
+        for (j=0;j<n;j++) // parcurgem matricea cu indici de la 0
+        {
+            printf("a[%d][%d]=", i,j);
+            scanf("%d", &a[i][j]);
+        }
+    for (i=1;i<n;i++)
+        for (j=0;j<i;j++)
+        {
+            temp=a[i][j];
+            a[i][j]=a[j][i];
+            a[j][i]=temp;
+        }
+    printf("Matricea transpusa este:\n");
+    for (i=0;i<n;i++)
+        {
+        for (j=0;j<n;j++)
+            printf("%d ", a[i][j]);
+            printf("\n");
+        }
+    return 0;
+}
