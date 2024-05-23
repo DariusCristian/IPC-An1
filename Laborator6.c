@@ -6,25 +6,68 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
-    int i,j, a[100][100]= {0},n;
+int main () {
+    int n,i,j,a[20][20];
+    // n - numarul de linii din triunghiul lui Pascal
+    // i,j - variabile de iteratie folosite in bucle
+    // a[20][20[ - matrice fixa de 20x20, unde se va construi triunghul lui Pascal
+
+
+    // Citirea valorii lui n
     printf("n=");
     scanf("%d", &n);
-    for(i=0; i<=n; i++)
-        for(j=0; j<=n; j++)
-        {
-            if(j==0|| i==j)
-                a[i][j]=1;
-            else if(i>j)
-                a[i][j]=a[i-1][j-1]+a[i-1][j];
+    // Se cere utilizatorului sa introduca nr. de linii ale triunghiului lui Pascal.
+
+
+    // vom pune 1 in prima coloana si 1 pe diagonala principala
+    // ( cele 2 laturi ale triunghiului )
+    // si 0 in rest
+
+
+    // Initializarea Matricei A
+    for(i=0;i<n;i++) { // parcurge liniile matricei a
+        for (j=0; j<n; j++){ // parcurge coloanele matricei a.
+            if ((j==0)||(i==j))
+                // j == 0 Aceasta verifică dacă suntem în prima coloană a matricei (j este 0).
+                // i == j Aceasta verifică dacă suntem pe diagonala principală a matricei
+                // (elementele unde indicele de linie i este egal cu indicele de coloană j).
+                a[i][j]=1; // Daca una dintre conditiile din if este adevarata
+                // pune 1 pe prima coloana si pe diagonala
+                // daca nici una dintre conditii nu este adeavarata, a[i][j] este setat la 0
+            else a[i][j]=0; // 0 in rest
         }
-    for(i=0; i<=n; i++)
-    {
-        for(j=0; j<=i; j++)
-            printf("%5d",a[i][j]);
+    }
+    // Se parcurge matricea A si se initializeaza:
+    // a[i][j] = 1 pentru elementele din prima coloană (unde j == 0) și
+    // pentru elementele de pe diagonala principală (unde i == j).
+    // a[i][j] = 0 pentru toate celelalte elemente.
+
+
+
+    // Calcularea valorilor din interiorul triunghiului lui Pascal:
+    for (i=2;i<n;i++)
+        // parcurge liniile matricei a începând de la linia 2
+        // (a treia linie, deoarece indexarea începe de la 0).
+        for (j=1;j<i;j++)
+            // parcurge coloanele matricei a pentru fiecare linie i,
+            // începând de la coloana 1 până la coloana i-1
+            a[i][j]=a[i-1][j]+a[i-1][j-1];
+    /*Începând de la linia 2 (index i=2) și coloana 1 (index j=1), fiecare element a[i][j]
+     * este calculat ca suma dintre elementul
+     * de deasupra (a[i-1][j]) și elementul din stânga sus (a[i-1][j-1]).
+     * Aceasta este regula pentru a construi triunghiul lui Pascal.*/
+
+
+
+    // Afisarea triunghiului lui Pascal:
+    for (i=0;i<n;i++){
+        for (j=0;j<=i;j++) // si egal ca sa mi ia val de pe diagonala pp
+            printf("%5d", a[i][j]);
         printf("\n");
     }
+    // Se parcurge matricea si se afiseaza fiecare linie a triunghiului
+    // %5d = pt a alinia frumos valorile afisate, cu o latime de 5 caractere pentru
+    // fiecare numar.
     return 0;
 }
 
