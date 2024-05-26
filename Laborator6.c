@@ -76,7 +76,7 @@ int main () {
 polinom de gradul n. să se afiseze derivata de ordinul k a acestui polinom. Se citește o
 valoare reală x. să se calculeze valoarea polinomului si a derivatei in punctul x.
 
-
+// VARIANTA 1
 #include "stdio.h"
 /* N - gradul polinomului
  * P(x) - formula
@@ -127,5 +127,64 @@ int main() {
         for (i=0; i<=n; i++) printf("'"); printf("(X)="); scrie_pol(a, n);
     }
 
+    return 0;
+}
+
+
+
+// VARIANTA 2, Varianta mai buna
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    // n ordinul polinomului, k ordinul derivatei, nrder - contor pt ordinea derivatelor
+    int n,k,i,a[10], nrder;
+
+    // Citirea gradului polinomului:
+    printf("Introduceti gradul polinomului:");
+    scanf("%d", &n);
+
+
+    // Citirea si validarea ordinului derivatei
+    do {
+        printf("Introduceti ordinul derivatei (<%d): ", n);
+        scanf("%d", &k);
+    } while (k>=n); // citim k cu validare
+
+
+    // Citirea coeficientilor polinomului:
+    // findca k trebuie sa fie strict mai mic decat n
+    printf("Introduceti coeficintii polinomului \n");
+    for (i=0;i<=n;i++) {
+        // n+1 coeficinti
+        // polinomul a[0]*x^n+a[1]*x^(n-1)+...+a[i]*x^(n-1)+...+a[n-1]*x+a[n]
+        printf("a[%d]=", i);
+        scanf("%d", &a[i]);
+    }
+
+
+    // Calcularea derivarei pana la ordinul k:
+    for (nrder = 1 ; nrder <= k ; nrder++) {
+        // contorul nrder tine evidenta derivatelor de ordin mai mic sau egal cu k
+        for (i = 0 ; i < n ; i++) {
+            a[i] = a[i] * (n - i);
+        }
+        n--; // dupa ce construim o derivata, decrementam n cu o unitate
+
+
+        // Afisarea derivatei
+        printf("\n\n Derivata de ordinul %d a polinomului este:\n", nrder);
+
+        for (i=0;i<=n;i++){
+            if (i<n){
+                printf("%d*X^%d+", a[i], n-i);
+            }
+            else {
+                printf("%d", a[i]);
+            }
+        }
+    }
     return 0;
 }
