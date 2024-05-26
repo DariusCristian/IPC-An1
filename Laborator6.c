@@ -140,7 +140,7 @@ int main() {
 
 int main () {
     // n ordinul polinomului, k ordinul derivatei, nrder - contor pt ordinea derivatelor
-    int n,k,i,a[10], nrder;
+    int n,k,i,a[10], nrdev;
 
     // Citirea gradului polinomului:
     printf("Introduceti gradul polinomului:");
@@ -171,7 +171,7 @@ int main () {
 
 
     // Calcularea derivarei pana la ordinul k:
-    for (nrder = 1 ; nrder <= k ; nrder++) {
+    for (nrder = 1 ; nrder <= k ; nrdev++) {
         // contorul nrder tine evidenta derivatelor de ordin mai mic sau egal cu k
         for (i = 0 ; i < n ; i++) {
             a[i] = a[i] * (n - i);
@@ -180,7 +180,7 @@ int main () {
 
 
         // Afisarea derivatei
-        printf("\n\n Derivata de ordinul %d a polinomului este:\n", nrder);
+        printf("\n\n Derivata de ordinul %d a polinomului este:\n", nrdev);
 
         for (i=0;i<=n;i++){
             if (i<n){
