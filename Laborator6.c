@@ -151,7 +151,12 @@ int main () {
     do {
         printf("Introduceti ordinul derivatei (<%d): ", n);
         scanf("%d", &k);
+        if (k>=n){
+            printf("Valoarea adaugata nu corespunde cerintei. "
+                   "Trebuie sa fie mai mica decat %d. ",n);
+        }
     } while (k>=n); // citim k cu validare
+
 
 
     // Citirea coeficientilor polinomului:
@@ -171,7 +176,7 @@ int main () {
         for (i = 0 ; i < n ; i++) {
             a[i] = a[i] * (n - i);
         }
-        n--; // dupa ce construim o derivata, decrementam n cu o unitate
+        n--; // dupa ce construim o derivata, decrementam puterea n cu o unitate
 
 
         // Afisarea derivatei
