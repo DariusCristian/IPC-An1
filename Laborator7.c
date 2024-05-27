@@ -47,6 +47,7 @@ int main(void) {
 2. Se citeşte un număr întreg n reprezentând numărul de elemente dintr-o mulţime şi un şir de n valori întregi reprezentând elementele acestei mulţimi. Folosind operatori pe biţi să se afişeze toate submulţimile mulţimii date.
 
 #include "stdio.h"
+
 // problema cu operatorii pe biti
 
 void printSubmultimi (int multime[], int nr_elem)
@@ -57,6 +58,9 @@ void printSubmultimi (int multime[], int nr_elem)
 
     // contorul merge de la 0(000..0) la nr_submultimi-1(111..1)
     for (contor = 0; contor < nr_submultimi; contor++)
+    /*contor parcurge toate valorile de la 0 la nr_submultimi - 1.
+     * Fiecare valoare a contor reprezintă o submulțime prin
+     * interpretarea fiecărui bit al său.*/
     {
         printf("{");
         for ( j = 0; j < nr_elem; j++)
@@ -64,7 +68,7 @@ void printSubmultimi (int multime[], int nr_elem)
             /* Verificam daca al j-lea bit din contor are valoarea 1
              * Daca este 1 atunci tiparim multime[j] ca parte din submultimea curenta*/
             if (contor & (1<<j)) {
-            printf("%d", multime[j]); }
+                printf("%d", multime[j]); }
         }
         printf("}\n");
     }
