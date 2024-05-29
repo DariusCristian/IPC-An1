@@ -19,14 +19,20 @@ int main(void) {
     b_i = b;
 
     // initializez cu 0 intrarile tabelelor de frecventa
-    for (i=0; i<=9; i++) tf_a[i]=tf_b[i]=0;
+    // initializarea tabelelor de frecventa
+    for (i=0; i<=9; i++)
+        tf_a[i]=tf_b[i]=0;
 
-    while(a){
-        c = a%10; a=a/10; tf_a[c]++;
+    while(a){ // c - stocheaza ultima cifra a lui a
+        c = a%10;
+        a=a/10;
+        tf_a[c]++;
     } // creez tabela de frecvente a cifrelor lui a
 
     while(b){
-        c = b%10; b=b/10; tf_b[c]++;
+        c = b%10;
+        b=b/10;
+        tf_b[c]++;
     } // creez tabela de frecvente a cifrelor lui b
 
     printf("Cifrele comune ale lui %i si %i sunt:", a_i, b_i);
