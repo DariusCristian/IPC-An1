@@ -128,3 +128,40 @@ int main(){
 
     return 0;
 }
+
+
+
+/* Dati o implementare a functiei substr care ne indica daca un sir s1 apare
+ * ca subsir al unui sir s2,  iar rezultatul este prima pozitiei pe care apare
+ * s1 in s2 sau -1 in caz contrar
+ * Exemplu: s1=bella, s2=anabella substr(s1,s2)=3
+ * daca s1=anabela si s2=anamaria substr(s1,s2)=-1*/
+#include "stdio.h"
+int substr(char s1[], char s2[]){
+    int i,j;
+    // parcurg toate caracterele din sirul s2
+    for (i=0;s2[i];i++){
+        // verific daca s1 nu incepe cu subsir al lui s2 la pozitia i
+        for (j=0;s1[j]==s2[i+j] && s1[j] && s2[i+j]; j++);
+        if(s1[j]=='\0') return i; //s1 e subsir a lui s2 daca iesirea din for e facuta
+        // prin terminarea sirului s1
+    }
+    // daca nu e subsir, returnez -1
+    return -1;
+}
+int main() {
+    char s1[100], s2[100];
+
+    printf("s1=");
+    scanf("%s", s1);
+
+    printf("s2=");
+    scanf("%s", s2);
+
+    if(substr(s1,s2)==-1) {
+        printf("%s nu este subsir a lui %s\n", s1, s2);
+    } else {
+        printf("%s este subsir a lui %s incepand cu pozitia %i\n", s1, s2, substr(s1,s2));
+    }
+    return 0;
+}
