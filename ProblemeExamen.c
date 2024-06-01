@@ -96,3 +96,35 @@ int main(void){
 
     return 0;
 }
+
+
+
+
+/*Sa se calculeze cu o precizie citita de la tastatura (de exemplu, de 0.000001)
+ * valoarea constantei lui Euler e
+ * e=1/0! + 1/1! + 1/2! + 1/3! + ... + 1/i! + ...*/
+#include "stdio.h"
+
+int fact(int n) {
+    if(n<=1) return 1;
+    return n * fact(n-1);
+}
+
+double e(float precizie) {
+    int i;
+    double suma_pas_curent = 1 / fact(0), suma_pas_precedent = 0;
+
+    for (i=1; suma_pas_curent - suma_pas_precedent > precizie; i++){
+        suma_pas_precedent = suma_pas_curent;
+        suma_pas_curent += 1.0/ fact(i);
+    }
+    return suma_pas_curent;
+}
+int main(){
+    double precizie;
+    printf("Introduceti precizia pentru calculul lui e:");
+    scanf("%lf", &precizie);
+    printf("e=%.10f", e(precizie));
+
+    return 0;
+}
