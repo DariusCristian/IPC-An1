@@ -79,23 +79,24 @@ le concatenează cu obținerea noului sir in primul argument al funcției
 METODA 1 */
 
 #include "stdio.h"
+#include "string.h"
 
-const char* mystrcat (char dest[], char s[]) {
-    //il facem pe i sa refere marcatorul de sfarsit a lui dest
+const char* mystrcat ( char dest[], char s[]){
     int i = 0, j = 0;
-    while (dest[i])i++; // sau while(dest[i]!='\0' i++);
-    // adaugam caracterele lui s la finalul lui dest
-    while(dest[i++]=s[j++]); // sau while(s[j]!='\0') dest [i++]=s[j++]; dest[i]='\0'
-    // strcat() intoarce pointerul inceputul sirului dest
+    while(dest[i]) i++;
+    while(s[j]!='\0'){
+        dest[i++]=s[j++];
+        dest[i]='\0';
+    }
     return dest;
 }
 
-int main(void) {
-    char dest[100] = "Hello ";
-    printf("%s", mystrcat(dest, "world"));
-
+int main(){
+    char dest[100]="Hello ";
+    printf("%s", mystrcat(dest,"world"));
     return 0;
 }
+
 
 
 
