@@ -83,7 +83,8 @@ METODA 1 */
 
 const char* mystrcat ( char dest[], char s[]){
     int i = 0, j = 0;
-    while(dest[i]) i++;
+    while(dest[i]) i++; // la iesirea din bucla aceasta, voi fi pozitionat pe ultima pozitie a sirului meu
+    // iar ceea ce urmeaza dupa, ii ceea ce adaug.
     while(s[j]!='\0'){
         dest[i++]=s[j++];
         dest[i]='\0';
@@ -96,6 +97,7 @@ int main(){
     printf("%s", mystrcat(dest,"world"));
     return 0;
 }
+
 
 
 
