@@ -17,7 +17,7 @@ int mystrcmp (char s[], char t[]) {
     while (s[i] == t[i])
         if (s[i++] == '\0') // ne pozitionam pe urmatoarea pereche de caractere
             return (0); // daca am ajuns la sfarsitul ambelor siruri si ele sunt egale caracter cu caracter returnam 0
-        return (s[i] - t[i]); //returnam diferenta dintre codurile ASCII ale primei perechi de caractere diferite
+    return (s[i] - t[i]); //returnam diferenta dintre codurile ASCII ale primei perechi de caractere diferite
 }
 
 
