@@ -133,3 +133,41 @@ int main() {
         care trebuie eliminată.*/
    return 0;
 }
+
+
+/*5. Se citesc 3 siruri de caractere
+ * Sa se inlocuiasca toate aparitiile sirului s2 in sirul s1 cu sirul s3*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s1[100], s2[100], s3[100], s4[100];
+    char* p;
+    int i;
+
+    puts ("s1=");
+    gets (s1);
+    puts ("s2=");
+    gets (s2);
+    puts ("s3=");
+    gets (s3);
+
+    // cat timp gasesc o noua aparitie a lui s2 in s1
+    while(p= strstr(s1,s2)){
+        // sterg pe s2 de pe pozitia gasita
+        strcpy(p,p + strlen(s2));
+        // p + strlen(s2): Pointer la poziția imediat următoare după apariția lui s2 în s1.
+        strcpy(s4,s1);
+        // copiez pe s3 pe locul in care se afla s2
+        strcpy(s4+(p-s1), s3);
+        // s4 + (p - s1): Pointer la poziția în s4 corespunzătoare poziției inițiale a lui s2 în s1
+        // copiez caracterele ramase dupa s2
+        strcpy(s4+(p-s1)+ strlen(s3), p);
+        //  Copiază restul șirului s1 (începând de la poziția p) în s4, după s3.
+        strcpy(s1,s4);
+    }
+    puts(s1);
+   return 0;
+}
+
