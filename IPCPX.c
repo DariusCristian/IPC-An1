@@ -110,23 +110,26 @@ int main() {
 #include <string.h>
 
 int main() {
-   char s[101], s_c[101];
-   int p, i;
-   // Punem conditia ca sirul sa fie de maxim 100 de litere
-   do {
-       puts("s(cel mult 100 caractere)=");gets(s);
-   } while (strlen(s)>100);
-   // Cerem introducerea numarului p sa fie nu mai mare decat marimea sirului
-   do {
+    char s[101], s_c[101];
+    int i,p;
+
+    do{
+        puts("s(cel mult 100 de caractere=");
+        gets(s);
+    } while (strlen(s)>100);
+
+    do {
         printf("p(<%d)=", strlen(s));
         scanf("%d", &p);
-   } while(p >= strlen(s));
-   // Executam formatiunea 
-   for (i=0;i<=strlen(s)-p;i++){
+    } while (p >= strlen(s));
+
+    for (i=0;i <= strlen(s) - p; i++){
         strcpy(s_c, s);
-        // stergem caractere incepand cu pozitia i din copia lu s
         strcpy(s_c+i, s_c+i+p);
         puts(s_c);
     }
+    /* s_c + i: Este un pointer care indică poziția în șirul s_c de unde începem să copiem.
+        s_c + i + p: Este un pointer care indică poziția în șirul s_c după secvența de p caractere 
+        care trebuie eliminată.*/
    return 0;
 }
