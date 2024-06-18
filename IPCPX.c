@@ -267,3 +267,21 @@ int main(){
 }
 
 
+// 8. Se citeste un sir de caractere. Sa se inverseze acesta.
+#include "stdio.h"
+#include "string.h"
+
+int main() {
+    char s[100], s_inv[100];
+    int i;
+
+    puts("s=");
+    gets(s);
+
+    for(i = strlen(s)-1; i>=0; i--){
+        s_inv[strlen(s)-1-i]=s[i];
+    }
+    s_inv[strlen(s)]='\0';
+    puts(s_inv);
+    return 0;
+}
