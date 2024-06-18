@@ -171,3 +171,33 @@ int main() {
    return 0;
 }
 
+
+
+/* 6. Se citeste un sir de caractere.
+ * Sa se calculeze suma cifrelor din acesta */
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[100];
+    int i, suma = 0;
+
+    // Citirea șirului de caractere de la tastatură
+    printf("s = ");
+    gets(s);
+
+    for (i = 0; s[i]; i++) {
+        // Verificarea dacă caracterul este o cifră
+        if (s[i] >= '0' && s[i] <= '9') {
+            suma += s[i] - '0';
+        } else {
+            // Dacă caracterul nu este o cifră, nu face nimic (else branch)
+        }
+    }
+
+    printf("Suma cifrelor este %d\n", suma);
+    return 0;
+}
+
+
