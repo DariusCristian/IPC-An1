@@ -97,3 +97,36 @@ int main() {
    puts(s1);
    return 0;
 }
+
+
+/*4. Se citeste un cuvant s format din cel mult 100 de litere mici.
+ * Se citeste un numar natural p (p<=100)
+ * Afisati cuvintele obtinute prin eliminarea unei secvente de p
+ * litere din s.
+ * Exemplu: s="adina", si p=3, rezulta cuvintele:
+ * na aa ad*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+   char s[101], s_c[101];
+   int p, i;
+   // Punem conditia ca sirul sa fie de maxim 100 de litere
+   do {
+       puts("s(cel mult 100 caractere)=");gets(s);
+   } while (strlen(s)>100);
+   // Cerem introducerea numarului p sa fie nu mai mare decat marimea sirului
+   do {
+        printf("p(<%d)=", strlen(s));
+        scanf("%d", &p);
+   } while(p >= strlen(s));
+   // Executam formatiunea 
+   for (i=0;i<=strlen(s)-p;i++){
+        strcpy(s_c, s);
+        // stergem caractere incepand cu pozitia i din copia lu s
+        strcpy(s_c+i, s_c+i+p);
+        puts(s_c);
+    }
+   return 0;
+}
