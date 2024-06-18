@@ -201,3 +201,69 @@ int main() {
 }
 
 
+
+
+// 7. Inmultirea a doua matrice patratice
+// definirea unui tip de matrice cu un numar specificat de linii si coloane
+
+#include "stdio.h"
+#include "string.h"
+
+typedef int matrice[10][10];
+
+void citire(matrice x, int n){
+    // n - nr de linii/coloane
+    for (int i=0; i<n;i++)
+        for (int j=0;j<n;j++){
+            printf("\tElem[%d,%d]= ", i+1, j+1);
+            scanf("%d", &x[i][j]);
+        }
+}
+
+// afisarea unei matrice bidimensionale
+void afisare(matrice x, int n, char* s){
+    printf("\nMatricea %s este:\n", s);
+    for (int i=0;i<n;i++){
+        for (int j=0;j<n;j++)
+            printf("\t%d", x[i][j]);
+        printf("\n");
+    }
+}
+
+// inmultirea a doua matrice
+void inmultire(matrice x, matrice y, matrice z, int n) {
+    /*In acest caz putem returna matricea prin tipul rezultat,
+     * pentru matricea este un pointer ( o adresa )*/
+    for (int i=0;i<n;i++)
+        for (int j=0; j<n; j++){
+            z[i][j]=0;
+                for (int k=0;k<n;k++)
+                    z[i][j]+=x[i][k]*y[k][j];
+        }
+}
+
+int main(){
+    matrice A, B, C;
+    int n;
+
+    printf("Introduceti dimensiunile matricelor:\n");
+
+    printf("\tnr. de linii/coloare: ");
+    scanf("%d", &n);
+
+    printf("Introducem elementele matricei A:\n");
+    citire(A,n);
+    afisare(A,n,"A");
+
+    printf("Introducem elementele matricei B:\n");
+    citire(B,n);
+    afisare(B,n,"B");
+
+    inmultire(A,B,C,n);
+    afisare(C,n,"A*B");
+
+    getchar();
+    return 0;
+}
+
+
