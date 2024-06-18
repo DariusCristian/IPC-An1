@@ -285,3 +285,48 @@ int main() {
     puts(s_inv);
     return 0;
 }
+
+
+
+/*9. Fie doua numere intregi a si b. Sa se determine cate cifre au in comun
+ * De exemplu: a=521345, b=875326
+ * Nr de cifre in comun: 2,3,5*/
+#include "stdio.h"
+#include "string.h"
+
+int main() {
+    int a, a_i, b, b_i, c, nr_cifre_comune=0, i;
+    int tf_a[10], tf_b[10];
+
+    printf("a=");
+    scanf("%i", &a);
+    a_i=a;
+
+    printf("b=");
+    scanf("%i", &b);
+    b_i=b;
+
+    for (i=0; i<=9; i++) tf_a[i]=tf_b[i]=0;
+
+    while(a) {
+        c = a%10;
+        a = a/10;
+        tf_a[c]++;
+    }
+
+    while(b) {
+        c = b%10;
+        b = b/10;
+        tf_b[c]++;
+    }
+
+    printf("Cifrele comune ale lui %i si %i sunt:", a_i, b_i);
+    for (i=0;i<=9; i++){
+        if(tf_a[i] && tf_b[i]){
+            nr_cifre_comune++;
+            printf("%i", i);
+        }
+    }
+    printf("\nNumerele %i si %i au deci %i cifre in comun", a_i, b_i, nr_cifre_comune);
+    return 0;
+}
