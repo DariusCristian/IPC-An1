@@ -330,3 +330,44 @@ int main() {
     printf("\nNumerele %i si %i au deci %i cifre in comun", a_i, b_i, nr_cifre_comune);
     return 0;
 }
+
+
+
+
+
+/* Se citesc 2 siruri de caractere s1, s2 de la tastatura.
+Sa se sterga toate aparitiile sirului
+s2 din sirul s1.*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s1[100], s2[100];
+    printf("Introduceți primul șir (s1): ");
+    gets(s1);
+    
+    printf("Introduceți al doilea șir (s2): ");
+    gets(s2);
+
+    int len1 = strlen(s1);
+    int len2 = strlen(s2);
+
+    if (len2 == 0 || len2 > len1) {
+        printf("Numărul de apariții ale lui s2 în s1: 0\n");
+        return 0;
+    }
+
+    int count = 0;
+
+    for (int i = 0; i <= len1 - len2; i++) {
+        if (strncmp(&s1[i], s2, len2) == 0) {
+            count++;
+        }
+    }
+
+    printf("Numărul de apariții ale lui s2 în s1: %d\n", count);
+
+    return 0;
+}
+
